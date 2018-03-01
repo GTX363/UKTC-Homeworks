@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int First_Prize, Second_Prize, Third_Prize;
+float Student_Price;
+char A, B, C;
+float Vol_of_students_1, Vol_of_students_2, Vol_of_students_3;
+cout << "3 Classes won 3 prizes." << endl;
+cout << "First place took class(A, B, C):";
+cin >> A;
+cout << "Second place took class(A, B, C):";
+cin >> B;
+cout << "Third place took class(A, B, C):";
+cin >> C;
+cout << "First place amount(in levs):";
+cin >> First_Prize;
+cout << "Second place amount(in levs):";
+cin >> Second_Prize;
+cout << "Third place amount(in levs):";
+cin >> Third_Prize;
+cout << "Price for 1 student for the trip(in levs):";
+cin >> Student_Price;
+Vol_of_students_1 = First_Prize/Student_Price;
+Vol_of_students_2 = Second_Prize/Student_Price;
+Vol_of_students_3 = Third_Prize/Student_Price;
+cout << (int)Vol_of_students_1 << " students from class " << A << " can go to the trip." << endl;
+cout << (int)Vol_of_students_2 << " students from class " << B << " can go to the trip." << endl;
+cout << (int)Vol_of_students_3 << " students from class " << C << " can go to the trip." << endl;
+    return 0;
+}
