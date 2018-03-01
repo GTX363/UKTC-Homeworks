@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+float R1, R2, Rp, Rs;
+cout << "\n Enter value of R1: \n";
+cin >> R1;
+cout << "\n Enter value of R2: \n";
+cin >> R2;
+if(R1 + R2 == 0)
+{
+    cout << "\n Error: Result can't be calculated";
+}
+else{
+    Rp = R1*R2/(R1 + R2);
+    cout << "\n The value (Rp) is ";
+    cout << Rp;
+}
+Rs = R1 + R2;
+cout << "\n The value (Rs) is ";
+cout << Rs;
+    return 0;
+}
