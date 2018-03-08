@@ -1,0 +1,94 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class Rectangle
+{
+private:
+    float width;
+    float height;
+public:
+    float Area()
+    {
+        return width*height;
+    }
+    float Perimeter()
+    {
+        return 2*(width + height);
+    }
+    void Info()
+    {
+        cout << "Width=" << width << endl;
+        cout << "Height=" << height << endl;
+        cout << "S=" << Area() << endl;
+        cout << "P=" << Perimeter() << endl;
+    }
+    void Setw(float a)
+    {
+        width = a;
+    }
+    float Getw()
+    {
+        return width;
+    }
+        void SetH(float a)
+    {
+        height = a;
+    }
+    float GetH()
+    {
+        return height;
+    }
+};
+
+class Point
+{
+private:
+    float x;
+    float y;
+public:
+    void SetX(float a)
+    {
+        x = a;
+    }
+    float GetX()
+    {
+        return x;
+    }
+    void SetY(float a)
+    {
+        y = a;
+    }
+    float GetY()
+    {
+        return y;
+    }
+    void Info()
+    {
+        cout << "X=" << x << endl;
+        cout << "Y=" << y << endl;
+    }
+    float Distance(Point p)
+    {
+    float d = sqrt((x - p.GetX())*(x - p.GetX()) + (y - p.GetY())*(y - p.GetY()));
+    return d;
+    }
+};
+
+int main()
+{
+    Rectangle myRect, yourRect;
+    Point A, B;
+    A.SetX(5);
+    A.SetY(10);
+    B.SetX(12);
+    B.SetY(30);
+    A.Info();
+    B.Info();
+    myRect.Setw(30);
+    myRect.SetH(3.5);
+    cout << myRect.Getw() << endl;
+    float rA = A.Distance(B);
+    cout << "From A to B:" << rA << endl;
+    return 0;
+}
