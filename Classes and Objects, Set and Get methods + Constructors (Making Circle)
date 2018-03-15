@@ -1,0 +1,86 @@
+#include <iostream>
+
+using namespace std;
+
+class Circle
+{
+private:
+    float r;
+    int x;
+    int y;
+public:
+    Circle();
+    Circle(float a, int b, int c);
+    void setR(float a);
+    float getR();
+    void setX(int a);
+    int getX();
+    void setY(int a);
+    int getY();
+    float Area();
+    void Info();
+};
+
+Circle::Circle()
+{
+    r = 0;
+    x = 0;
+    y = 0;
+}
+
+Circle::Circle(float a, int b, int c)
+{
+    r = a;
+    x = b;
+    y = c;
+}
+
+void Circle::setR(float a)
+{
+    r = a;
+}
+
+float Circle::getR()
+{
+    return r;
+}
+
+void Circle::setX(int a)
+{
+    x = a;
+}
+
+int Circle::getX()
+{
+    return x;
+}
+
+void Circle::setY(int c)
+{
+    y = c;
+}
+
+int Circle::getY()
+{
+    return y;
+}
+
+float Circle::Area()
+{
+    return r*r*3.14;
+}
+
+void Circle::Info()
+{
+    cout << "Circle's radius: " << r << endl;
+    cout << "X= " << x << endl;
+    cout << "Y= " << y << endl;
+    cout << "Area=" << Area() << endl;
+}
+
+int main()
+{
+Circle One(3,5,9);
+One.Info();
+    return 0;
+}
