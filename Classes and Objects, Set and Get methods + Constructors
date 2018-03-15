@@ -1,0 +1,88 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+class Student
+{
+private:
+    string name;
+    int number;
+    float mark;
+public:
+    void SetName(string a)
+    {
+        name = a;
+    }
+    string GetName()
+    {
+        return name;
+    }
+    void SetNum(int a)
+    {
+        number = a;
+    }
+    int GetNum()
+    {
+        return number;
+    }
+    void SetMark(float a)
+    {
+        if(a > 6)
+        mark = 6;
+        else if(a < 2)
+        mark = 2;
+        else mark = a;
+    }
+    float GetMark()
+    {
+        return mark;
+    }
+    void sayInfo()
+    {
+        cout << "I'm " << name << endl;
+        cout << "I'm number " << number << endl;
+        cout << "Average mark: " << mark << endl;
+    }
+    Student()
+    {
+        cout << "The object has been created." << endl;
+        name = "Unknown";
+        number = 0;
+        mark = 2;
+    }
+    Student(string nm, int n, float m)
+    {
+        name = nm;
+        number = n;
+        mark = m;
+    }
+};
+
+int main()
+{
+Student Me;
+Me.SetName("Martin");
+Me.SetNum(19);
+Me.SetMark(12.00);
+Me.sayInfo();
+
+cout << endl;
+
+Student You;
+You.SetName("Pesho");
+You.SetNum(29);
+You.SetMark(4.00);
+You.sayInfo();
+
+cout << endl;
+
+Student ConstructorTest;
+ConstructorTest.sayInfo();
+
+cout << endl;
+
+Student SecondConstructor("Mimi", 18, 5);
+SecondConstructor.sayInfo();
+    return 0;
+}
