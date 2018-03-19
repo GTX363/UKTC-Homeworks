@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+int beers = 200;
+int wines = 300;
+int beersOrders = 0;
+int beersDeliveries = 0;
+int winesOrders = 0;
+int winesDeliveries = 0;
+string input;
+for(;;)
+{
+    cin >> input;
+    if(input == "END")
+    {
+        break;
+    }
+    string drink = input.substr(0, input.find(":"));
+    int countt = stoi(input.substr(input.find(":") + 1));
+    if(drink == "Beers")
+    {
+        beers += countt;
+        if(countt > 0) beersDeliveries++;
+        else if(countt < 0) beersOrders++;
+    }
+    else if (drink == "Wines")
+    {
+        wines += countt;
+        if(countt > 0) winesDeliveries++;
+        else if(countt < 0) winesOrders++;
+    }
+}
+cout << "Wines: " << wines << endl;
+cout << "Orders: " << winesOrders << endl;
+cout << "Deliveries: " << winesDeliveries << endl;
+cout << "Beers: " << beers << endl;
+cout << "Orders: " << beersOrders << endl;
+cout << "Deliveries: " << beersDeliveries << endl;
+
+    return 0;
+}
