@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+string input;
+cin >> input;
+int comma = input.find(",");
+int i, j;
+i = stoi(input.substr(0, comma));
+j = stoi(input.substr(comma+1));
+int battlefield[i][j];
+for(int x = 0 ; x < i ; x++)
+for(int y = 0 ; y < j ; y++)
+battlefield[x][y]= 100;
+for(;;)
+{
+std::string end = "GAME OVER";
+std::string secondinput;
+int X,Y,DMG;
+cin >> secondinput;
+if(end.compare(secondinput) == 5)
+{
+for(int x = 0 ; x < i ; x++){
+for(int y = 0 ; y < j ; y++)
+cout << battlefield[x][y] << " ";
+cout << endl;
+}   
+}
+int fcomma = secondinput.find(",");
+int scomma = secondinput.rfind(",");
+X = stoi(secondinput.substr(0, fcomma));
+Y = stoi(secondinput.substr(fcomma + 1, scomma - fcomma - 1));
+if((X >= i || Y >= j) || (X < 0 || Y < 0)) cout << "The cell is out of the array." << endl;
+else{
+DMG = stoi(secondinput.substr(scomma + 1));
+battlefield[X][Y] -= DMG;
+battlefield[X-1][Y-1] -= 10;
+battlefield[X][Y-1] -= 10;
+battlefield[X+1][Y-1] -= 10;
+battlefield[X-1][Y] -= 10;
+battlefield[X+1][Y] -= 10;
+battlefield[X-1][Y+1] -= 10;
+battlefield[X][Y+1] -= 10;
+battlefield[X+1][Y+1] -= 10;
+
+if(battlefield[X][Y] < 0) battlefield[X][Y] = 0;
+if(battlefield[X-1][Y-1] < 0) battlefield[X-1][Y-1] = 0;
+if(battlefield[X][Y-1] < 0) battlefield[X][Y-1] = 0;
+if(battlefield[X+1][Y-1] < 0) battlefield[X+1][Y-1] = 0;
+if(battlefield[X-1][Y] < 0) battlefield[X-1][Y] = 0;
+if(battlefield[X+1][Y] < 0) battlefield[X+1][Y] = 0;
+if(battlefield[X-1][Y+1] < 0) battlefield[X-1][Y+1] = 0;
+if(battlefield[X][Y+1] < 0) battlefield[X][Y+1] = 0;
+if(battlefield[X+1][Y+1] < 0) battlefield[X+1][Y+1] = 0;
+   }
+}
+}
