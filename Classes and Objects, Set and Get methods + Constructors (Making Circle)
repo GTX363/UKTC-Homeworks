@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ public:
     int getY();
     float Area();
     void Info();
+    bool Intersect(Circle c);
 };
 
 Circle::Circle()
@@ -78,9 +80,23 @@ void Circle::Info()
     cout << "Area=" << Area() << endl;
 }
 
+bool Circle::Intersect(Circle c)
+{
+   float d;
+   float radius;
+   d =  sqrt((c.x - x)*(c.x - x) + (c.y - y)*(c.y - y));
+   radius = r + c.r;
+   if(d > r) return false;
+   else if(d < r) return true;
+}
+
 int main()
 {
 Circle One(3,5,9);
 One.Info();
+Circle Two(5,7,4);
+Two.Info();
+if(Two.Intersect(One)) cout << "The circles cross.";
+else cout << "The circles does not cross.";
     return 0;
 }
