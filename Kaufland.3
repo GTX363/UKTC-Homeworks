@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cstring>
+enum Colours { BLACK, WHITE} ;
+
+using namespace std;
+
+class SpaceShip
+{
+protected:
+    int ID;
+    string name;
+    Colours b = BLACK;
+    Colours w = WHITE;
+    int AttackDamage;
+    int Health;
+    int Shield;
+    int Capacity;
+public:
+    int Attack(SpaceShip A);
+    int TakeDamage();
+    bool IsDestroyed();
+
+};
+
+class Outrider: public SpaceShip
+{
+private:
+    int PlasmaDefense;
+    int AD = AttackDamage - 50;
+    int HP = Health + 100;
+};
+
+class Millennium_Falcon: public SpaceShip
+{
+private:
+    int Dodge;
+    int AD = AttackDamage*2;
+};
+
+class Ebon_Hawk: public SpaceShip
+{
+public:
+    int Heal(int life);
+};
+
+int SpaceShip::Attack(SpaceShip A)
+{
+    if(Shield > 0)
+    {
+        Shield -= A.AttackDamage;
+        return Shield;
+    }
+    else
+    {
+        Health -= A.AttackDamage;
+        return Health;
+    }
+}
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
+}
