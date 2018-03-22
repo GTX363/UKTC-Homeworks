@@ -1,0 +1,68 @@
+#include <iostream>
+
+using namespace std;
+
+class Shape
+{
+protected:
+    int width;
+    int height;
+public:
+    void setWidth(int a)
+    {
+        width = a;
+    }
+    int getWidth()
+    {
+        return width;
+    }
+    void setHeight(int a)
+    {
+        height = a;
+    }
+    int getHeight()
+    {
+        return height;
+    }
+
+};
+
+class Rectangle: public Shape
+{
+public:
+    double Area()
+    {
+        return width*height;
+    }
+};
+
+class Triangle: public Shape
+{
+  public:
+      double Area()
+      {
+          return (width*height)/2;
+      }
+};
+
+int main()
+{
+Shape fgr;
+Rectangle fgr2;
+Triangle fgr3;
+fgr.setWidth(30);
+cout << fgr.getWidth() << endl;
+fgr2.setHeight(20);
+fgr2.setWidth(10);
+cout << "Rectangle height: " << fgr2.getHeight() << endl;
+cout << "Rectangle width: " <<fgr2.getWidth() << endl;
+cout << "Rectangle Area: "  << fgr2.Area() << endl;
+fgr3.setHeight(30);
+fgr3.setWidth(10);
+cout << "Triangle height: " << fgr3.getHeight() << endl;
+cout << "Triangle width: " << fgr3.getWidth() << endl;
+cout << "Triangle Area: " << fgr3.Area() << endl;
+
+
+    return 0;
+}
