@@ -23,6 +23,7 @@ public:
     double Volume();
     void Info();
     double Area();
+    void InsertInfo();
 };
 
 Box::Box()
@@ -101,18 +102,31 @@ void Box::Info()
     cout << "Volume= " << Volume() << endl;
 }
 
+void Box::InsertInfo()
+{
+    int x, y, z;
+    string name2;
+    cout << "Insert a:";
+    cin >> x;
+    cout << "Insert b:";
+    cin >> y;
+    cout << "Insert c:";
+    cin >> z;
+    cout << "Insert name:";
+    cin >> name2;
+    if(x < 0) x = -x;
+    if(y < 0) y = -y;
+    if(z < 0) z = -z;
+    setA(x);
+    setB(y);
+    setC(z);
+    setName(name2);
+}
+
 int main()
 {
 Box A;
-A.setA(10);
-A.setB(20);
-A.setC(5);
-A.setName("Martin");
+A.InsertInfo();
 A.Info();
-
-cout << endl;
-
-Box B(10,20,5, "Margo");
-B.Info();
     return 0;
 }
