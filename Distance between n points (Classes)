@@ -1,0 +1,77 @@
+#include <iostream>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+
+class Point
+{
+private:
+    int x;
+    int y;
+public:
+    friend double dist(Point A, Point B);
+    void setX(int a)
+    {
+        x = a;
+    }
+    int getX()
+    {
+        return x;
+    }
+    void setY(int a)
+    {
+        y = a;
+    }
+    int getY()
+    {
+        return y;
+    }
+};
+
+double dist(Point A, Point B);
+
+int main()
+{
+    srand(time(0));
+    int n;
+    cout << "Insert the number of the points you would want:";
+    cin >> n;
+    Point pts[n];
+    for(int i = 0; i < n ; i++)
+    {
+        int a, b;
+        cout << "Enter x for point " << i << " :";
+        cin >> a;
+        cout << "Enter y for point " << i << " :";
+        cin >> b;
+        pts[i].setX(a);
+        pts[i].setY(b);
+    }
+    double r[n][n];
+    for(int i = 0 ; i < n ; i++)
+    {
+        for(int j = i ; j < n ; j++)
+        {
+            r[i][j] = dist(pts[i], pts[j]);
+        }
+    }
+    double mindis = r[0][1];
+    for(int i = 0 ; i < n ; i++)
+    {
+        for(int j = i ; j < n ; j++)
+        {
+        if(r[i][j] < mindis && i!= j) mindis = r[i][j];
+        }
+    }
+    cout << "Minimal distance between two points is: " << mindis << endl;
+    return 0;
+}
+
+double dist(Point A, Point B)
+{
+    double d;
+    d = sqrt((A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y));
+    return d;
+}
