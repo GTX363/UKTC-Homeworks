@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+int fact(int n);
+double power(double x, int n);
+int fibonachi(int n);
+double fun(double x, int n);
+double fun2(double x, int n);
+
+int main()
+{
+    
+    return 0;
+}
+
+int fact(int n)
+{
+    if(n <= 1)
+        return 1;
+    else return n*fact(n-1);
+}
+
+double power(double x, int n)
+{
+    if(n == 0)
+        return 1;
+    else return x*power(x, n-1);
+}
+
+int fibonachi(int n)
+{
+    if(n == 1)
+        return 0;
+    else if(n == 2)
+        return 1;
+    else return fibonachi(n - 2) + fibonachi(n - 1);
+}
+
+double fun(double x, int n)
+{
+    double S = 1;
+    for(int i = 1 ; i <= n ; i++)
+    {
+        S+= power(x,n)/fact(i);
+    }
+    return S;
+}
+
+double fun2(double x, int n)
+{
+    double S = 2;
+    int j = 0;
+    for(int i = 1 ; i <= n ; i++)
+    {
+        S+= fact(i)/i*power(x , n - j);
+        j++;
+    }
+}
