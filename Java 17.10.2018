@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class BMICalculator {
+	
+	public static void main(String[] arg) {
+		Scanner scan = new Scanner(System.in); 
+		printIntroduction();
+		double BMIresult = getBMI(scan);
+		String Condition = getStatus(BMIresult);
+		ReportResult(1, BMIresult, Condition);
+		
+	}
+	
+    public static void printIntroduction() {
+    	System.out.println("BMI calculator");
+    }
+    
+    public static double getBMI(Scanner scan) {
+    	System.out.println("Enter height in inches");
+    	//double height = Double.parseDouble(scan.nextLine());
+    	double height = scan.nextDouble();
+    	
+    	System.out.println("Enter weight in pounds");
+    	double weight = scan.nextDouble();
+    	
+    	double result = bmiFor(weight, height);
+    	return result;
+    }
+    
+    public static double bmiFor(double weight, double height){
+    	return weight*703/ (height*height);
+    }
+    
+    public static String getStatus(double bmi)
+    {
+    if(bmi <= 18.5) return "underweight";
+    else if(bmi > 18.5 && bmi <= 25) return "normal";
+    else if(bmi > 25 && bmi <= 30) return "overweight";
+    else return "obese";
+    }
+    
+    public static void ReportResult(int index, double bmi, String condition)
+    {
+    	bmi = Math.round(bmi);
+    	System.out.println("The person with index " + index +
+    			" who has a bmi of " + bmi + 
+    			"is " + condition);
+    }
+}
